@@ -1,0 +1,45 @@
+<title></title>
+<meta charset="utf-8">
+<script type="text/javascript" src="/scripts/angular.min.js"></script>
+<script type="text/javascript" src="/scripts/app.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+ 
+ <div ng-show="proyectoDetalle!=null">
+</div>
+<div ng-app="app">
+<div ng-controller="Controlador1 as c1">
+   <table>
+       <tbody><tr>
+           <th>Identificador</th>
+           <th>Lenguaje</th>
+       </tr>
+       <tr ng-repeat="proyecto in c1.loggedContent">
+            
+           <td>{{proyecto.ID}}</td>
+           <td>{{proyecto.NAME}}</td>
+           <td><input type="button" ng-click="verDetalle(proyecto)" value="ver detalle"></td>
+       </tr>
+   </tbody></table>
+
+   <h1>Introduzca sus datos</h1>
+  <section>
+      
+        Nombre: <input type="text" ng-model="fdatos.nombre">
+        <br>
+        Edad: <input type="text" ng-model="fdatos.edad">
+        <br>
+        <div>
+            <button class="btn btn-default" ng-click="c1.enviar(fdatos)">Enviar</button>
+        </div>
+        
+  </section>
+
+
+
+
+</div>
+</div>
+
+<div>
+  
+</div>
