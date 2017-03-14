@@ -9,13 +9,6 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-var cont = require('./contentfull')
-app.get('/api/contentful',cont.getContent)
-
-app.get('/contentful', function(request,response,next){
-  response.render('pages/contentful')
-});
-
 app.get('/', function(request, response) {
   response.render('pages/index');
 });
