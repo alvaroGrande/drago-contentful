@@ -12,11 +12,11 @@ app.set('view engine', 'ejs');
 
 //Api URL
 //Base de Datos
-//var db = require('./queries')
+var db = require('./queries')
 // Ejemplo URL API Base de Datos --> app.get('/api/get', db.get)
 
 //Contentful
-//var cont = require('./contentful')
+var cont = require('./contentful')
 //Ejemplo URL API CONTENTFUL --> app.get('/api/get', cont.get)
 
 app.get('/*', function (req, res, next) {
