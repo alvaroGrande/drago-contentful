@@ -10,6 +10,15 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
+//Api URL
+//Base de Datos
+var db = require('./queries')
+// Ejemplo URL API Base de Datos --> app.get('/api/get', db.get)
+
+//Contentful
+var cont = require('./contentful')
+//Ejemplo URL API CONTENTFUL --> app.get('/api/get', cont.get)
+
 app.get('/*', function (req, res, next) {
   var credentials = auth(req)
   if (process.env.BASICAUTH == "ACTIVE") {
