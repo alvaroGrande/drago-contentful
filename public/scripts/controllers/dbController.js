@@ -5,9 +5,9 @@
 
     app.controller('dbController', dbController)
 
-    dbController.$inject = ['$scope', '$http', 'contentful', '$filter'];
+    dbController.$inject = ['$scope', '$http'];
 
-    function dbController($scope, $http, contentful, $filter) {
+    function dbController($scope, $http) {
         var _this = this
         
     }

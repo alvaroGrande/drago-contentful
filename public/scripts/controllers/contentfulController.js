@@ -5,9 +5,9 @@
 
     app.controller('contentfulController', contentfulController)
 
-    contentfulController.$inject = ['$scope', '$http', 'contentful', '$filter'];
+    contentfulController.$inject = ['$scope', '$http'];
 
-    function contentfulController($scope, $http, contentful, $filter) {
+    function contentfulController($scope, $http) {
         var _this = this
         
     }
