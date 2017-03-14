@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="drago-app">
 <head>
   <% include ../partials/header.ejs %>
+   <script src="/scripts/controllers/dbController.js" type="text/javascript"></script>
 </head>
 
-<body>
+<body ng-controller="dbController as db">
 
-<% include ../partials/nav.ejs %>
+  <% include ../partials/nav.ejs %>
 
 <div class="container">
-<h2>Database Results</h2>
-
-<ul>
-    <% results.forEach(function(r) { %>
-        <li><%= r.id %> - <%= r.name %></li>
-    <% }); %>
-</ul>
-
+  <div class="alert alert-info text-center" role="alert">
+    Conexion a la base de datos, SELECT, INSERT y DELETE
+  </div>
+  <hr>
+  
 </div>
+
 
 </body>
 </html>
