@@ -12,7 +12,69 @@
 <div class="container">
   <div class="alert alert-info text-center" role="alert">
     Conexion a la base de datos, SELECT, INSERT y DELETE
+
+    
   </div>
+  <div class="container">
+  <div class="row">
+    <div class= "col-md-4">
+     <h2>TABLA DE USUARIOS</h2>
+  <p>Extracción de datos de base de datos</p>            
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>ID_usuario</th>
+        <th>Nombre</th>
+        <th>Más Info...</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="usuario in db.loggedContent">
+        <td>{{usuario.ID_usuario}}</td>
+        <td>{{usuario.Name}}</td>
+        <td> <button type="button" class="btn btn-info" ng-click="verDetalle(proyecto)" value="Productos">Productos</button></td>
+
+       
+      
+      </tr>
+      
+    </tbody>
+  </table>
+    </div>
+  
+  </div>
+  
+
+   <div class="row">
+    <div class= "col-md-4">
+     <h2>TABLA DE PRODUCTOS</h2>
+           
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>ID_producto</th>
+        <th>Articulo</th>
+        <th>Más Info...</th>
+       
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="producto in db.loggedContentt">
+        <td>{{producto.ID_product}}</td>
+        <td>{{producto.articulo}}</td>
+         <td> <button type="button" class="btn btn-success" ng-click="verDetalle(proyecto)" value="Productos">¿Quien lo posee?</button></td>
+      
+      </tr>
+      
+    </tbody>
+  </table>
+    </div>
+  
+  </div>
+ 
+</div>
   <hr>
   
 </div>
