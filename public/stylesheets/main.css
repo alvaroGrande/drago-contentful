@@ -25,3 +25,7 @@
     .jumbotron .lang-logo img {
       max-width: 100%; }
 
+  .panel-default > .panel-body {
+  background-color: #B9F6CA;
+}
+
