@@ -18,7 +18,9 @@ var db = require('./queries')
 //Contentful
 var cont = require('./contentful')
 //Ejemplo URL API CONTENTFUL --> app.get('/api/get', cont.get)
+app.get('/api/contentful',cont.getProduct)
 
+//Autentificacion a la pagina (user/pwd)
 app.get('/*', function (req, res, next) {
   var credentials = auth(req)
   if (process.env.BASICAUTH == "ACTIVE") {

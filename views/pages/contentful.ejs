@@ -1,22 +1,42 @@
 <!DOCTYPE html>
-<html ng-app="drago-app">
+<html ng-app="drago-app"> <!-- html gestionado por drago-app-->
 <head>
-  <% include ../partials/header.ejs %>
+  <% include ../partials/header.ejs %> <!-- incluimos el header.ejs en esta vista html -->
    <script src="/scripts/controllers/contentfulController.js" type="text/javascript"></script>
+
 </head>
 
-<body ng-controller="contentfulController as cont">
+<body ng-controller="contentfulController as contCtrl">
 
-  <% include ../partials/nav.ejs %>
+  <% include ../partials/nav.ejs %> <!-- incluimos el nav.ejs en esta vista -->
 
 <div class="container">
+
   <div class="alert alert-info text-center" role="alert">
-    Conexion a Contentful. Select de un entry, Select de Content Type, Busqueda y Paginación
-  </div>
-  <hr>
   
+    Conexion a Contentful. Select de un entry, Select de Content Type, Busqueda y Paginación
+
+  </div>
+  <div class="row">
+  <div class="col-md-4" ng-repeat="producto in contCtrl.content">
+    <!-- "PINTADO" PRODUCTOS -->
+    <div class="panel panel-default">
+
+      <div class="panel-heading" align="center">
+        {{producto.fields.titulo}}
+      </div>
+
+      <div class="panel-body">
+        <!--<img src="{{producto.fields.img}}" class="img-responsive img-rounded" alt="{{producto.fields.titulo}}">-->     
+        {{producto.fields.descripcion}}
+      </div>
+
+    </div>
+
+   </div>
+
+   </div>
+
 </div>
-
-
 </body>
 </html>
