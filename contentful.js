@@ -34,3 +34,5 @@ function getProduct(request,response){
                 message: 'Retrieved Saved news for user'
             }))
 }
+
+//FUNCION PARA BUSCAR UN ELEMENTO DENTRO DE CONTENTFULL
