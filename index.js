@@ -1,10 +1,15 @@
 var express = require('express');
 var app = express();
+var bodyParser = require("body-parser");
+var methodOverride = require("method-override");
 var auth = require('basic-auth');
 
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(methodOverride());
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
