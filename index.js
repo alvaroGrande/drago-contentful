@@ -24,6 +24,7 @@ app.get('/api/db', db.getFeature)
 app.get('/api/products', db.getProductos)
 
 
+
 app.get('/*', function (req, res, next) {
   var credentials = auth(req)
   if (process.env.BASICAUTH == "ACTIVE") {
