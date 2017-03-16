@@ -23,6 +23,7 @@ app.get('/api/contentful',cont.getProduct)
 
 app.get('/api/db', db.getFeature)
 app.get('/api/products', db.getProductos)
+app.post('/api/info', db.getMasInfo)
 
 
 //Autentificacion a la pagina (user/pwd)

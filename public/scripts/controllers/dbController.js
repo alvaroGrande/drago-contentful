@@ -33,7 +33,27 @@
         
         this.getProductos()
 
-    }
+     
+     
+   this.verDetalle = function(datos){
+                console.log(datos)
+                
+                $http.post("/api/info", {
+                    headers: {
+                                'Content-Type': 'application/json'
+                            },
+                    d: {
+                        name: datos,
+                      
+                        }
+                }).then(function(dataFromServer){
+                    console.log(dataFromServer)
+                    $scope.fdatos={}
 
+                    _this.getContent()
+                })
+
+    }
+    } 
 })()
 

@@ -33,7 +33,7 @@
       <tr ng-repeat="usuario in db.loggedContent">
         <td>{{usuario.ID_usuario}}</td>
         <td>{{usuario.Name}}</td>
-        <td> <button type="button" class="btn btn-info" ng-click="verDetalle(proyecto)" value="Productos">Productos</button></td>
+        <td> <button type="button" class="btn btn-info" ng-click="db.verDetalle(usuario.ID_usuario)" value="Productos">Productos</button></td>
 
        
       
@@ -64,7 +64,33 @@
       <tr ng-repeat="producto in db.loggedContentt">
         <td>{{producto.ID_product}}</td>
         <td>{{producto.articulo}}</td>
-         <td> <button type="button" class="btn btn-success" ng-click="verDetalle(proyecto)" value="Productos">¿Quien lo posee?</button></td>
+         <td> <button type="button" class="btn btn-success" ng-click="db.verDetalle(proyecto)" value="Productos">¿Quien lo posee?</button></td>
+      
+      </tr>
+      
+    </tbody>
+  </table>
+    </div>
+  
+  </div>
+   <div class="row">
+    <div class= "col-md-4">
+     <h2>MAS INFO</h2>
+           
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        
+        <th>Articulo</th>
+       
+       
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="info in db.loggedContenttt">
+        <td>{{info.articulo}}</td>
+        
       
       </tr>
       
