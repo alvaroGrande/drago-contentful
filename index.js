@@ -1,10 +1,15 @@
 var express = require('express');
 var app = express();
+var bodyParser = require("body-parser");
+var methodOverride = require("method-override");
 var auth = require('basic-auth');
 
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(methodOverride());
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
@@ -20,13 +25,12 @@ var cont = require('./contentful')
 //Ejemplo URL API CONTENTFUL --> app.get('/api/get', cont.get)
 app.get('/api/contentful',cont.getProduct)
 
-
 app.get('/api/db', db.getFeature)
 app.get('/api/products', db.getProductos)
 app.post('/api/info', db.getMasInfo)
+app.post('/api/poseedores', db.getPoseedores)
 
 
-//Autentificacion a la pagina (user/pwd)
 
 app.get('/*', function (req, res, next) {
   var credentials = auth(req)

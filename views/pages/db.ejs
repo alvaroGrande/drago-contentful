@@ -3,39 +3,55 @@
 <head>
   <% include ../partials/header.ejs %>
    <script src="/scripts/controllers/dbController.js" type="text/javascript"></script>
+   <script src="/scripts/ventana.js" type="text/javascript"></script>
+   <script src="/scripts/find.js" type="text/javascript"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 </head>
 
 <body ng-controller="dbController as db">
 
   <% include ../partials/nav.ejs %>
 
+
+
 <div class="container">
   <div class="alert alert-info text-center" role="alert">
-    Conexion a la base de datos, SELECT, INSERT y DELETE
-
-    
+  <img src="../../img/Logo_118351.png" alt="Responsive image" class="img-thumbnail anchoCompleto" >
+  <h4>  </h4>
+    <h4>Extracción de datos de base de datos / Conexion a la base de datos, SELECT, INSERT y DELETE</h4>
+<div >
+<h5 class="bg-primary" id="btnDetails">Detalles</h5>
+    </div>
   </div>
   <div class="container">
   <div class="row">
     <div class= "col-md-4">
-     <h2>TABLA DE USUARIOS</h2>
-  <p>Extracción de datos de base de datos</p>            
+    <div class="alert alert-info text-center"  role="alert">
+    
+    <h3>
+    <img src="../../img/usuario.png" alt="Responsive image" class="img-thumbnail" >
+    TABLA DE USUARIOS</h3>
+     </div>
+           
   <table class="table table-condensed">
     <thead>
       <tr>
-        <th>ID_usuario</th>
-        <th>Nombre</th>
-        <th>Más Info...</th>
+        <th class="bg-success">ID_usuario</th>
+        <th class="bg-success">Nombre</th>
+        <th class="bg-success">Más Info...</th>
+        <th class="bg-success">Detalles</th>
        
       </tr>
     </thead>
-    <tbody>
+    <tbody class="botones">
       <tr ng-repeat="usuario in db.loggedContent">
-        <td>{{usuario.ID_usuario}}</td>
-        <td>{{usuario.Name}}</td>
+        <td id="identUsuario" class="glyphicon glyphicon-user">  {{usuario.ID_usuario}}</td>
+        <td id="nombreUsuario">{{usuario.Name}}</td>
         <td> <button type="button" class="btn btn-info" ng-click="db.verDetalle(usuario.ID_usuario)" value="Productos">Productos</button></td>
+        <td> <div id="btnDetaggils" class="btn btn-default">Detalles</div></td>
 
-       
       
       </tr>
       
@@ -43,28 +59,30 @@
   </table>
     </div>
   
-  </div>
-  
 
-   <div class="row">
+  
     <div class= "col-md-4">
-     <h2>TABLA DE PRODUCTOS</h2>
-           
+     <div class="alert alert-info text-center cajasAzules" role="alert">
+      <h3>
+      
+      <img src="../../img/big_tecnologia.jpg" alt="Responsive image" class="img-thumbnail" >
+      TABLA PRODUCTOS</h3>
+      </div>
   <table class="table table-condensed">
     <thead>
       <tr>
-        <th>ID_producto</th>
-        <th>Articulo</th>
-        <th>Más Info...</th>
+        <th class="bg-success">ID_producto</th>
+        <th class="bg-success">Articulo</th>
+        <th class="bg-success">Más Info...</th>
        
        
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="producto in db.loggedContentt">
-        <td>{{producto.ID_product}}</td>
+        <td class= "glyphicon glyphicon-list">   {{producto.ID_product}}</td>
         <td>{{producto.articulo}}</td>
-         <td> <button type="button" class="btn btn-success" ng-click="db.verDetalle(proyecto)" value="Productos">¿Quien lo posee?</button></td>
+         <td> <button type="button" class="btn btn-success" ng-click="db.verPoseedores(producto.ID_product)" value="Productos">¿Quien lo posee?</button></td>
       
       </tr>
       
@@ -72,16 +90,20 @@
   </table>
     </div>
   
-  </div>
-   <div class="row">
+ 
     <div class= "col-md-4">
-     <h2>MAS INFO</h2>
+    <div class="alert alert-info text-center" role="alert">
+    <h3>
+    
+    <img src="../../img/servicio_mas_info.png" alt="Responsive image" class="img-thumbnail" >
+    MAS INFO</h3>
+     </div>
            
   <table class="table table-condensed">
     <thead>
       <tr>
         
-        <th>Articulo</th>
+        <th class="bg-success">Articulo</th>
        
        
        
@@ -89,13 +111,47 @@
     </thead>
     <tbody>
       <tr ng-repeat="info in db.loggedContenttt">
-        <td>{{info.articulo}}</td>
+        <td class= "glyphicon glyphicon-phone">    {{info.articulo}}</td>
         
       
       </tr>
       
     </tbody>
   </table>
+
+
+    </div>
+
+    <div class="row">
+    <div class= "col-md-4">
+    <div class="alert alert-info text-center" role="alert">
+    <h3>
+    
+    <img src="../../img/vector-cartoon-technology-icons.jpg" alt="Responsive image" class="img-thumbnail" >
+    PRODUCTOS DE CADA USUARIO</h3>
+     </div>
+           
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        
+        <th class="bg-success">Usuario</th>
+       
+       
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="info in db.loggedContentttt">
+        <td>{{info.ID_usuario}}</td>
+        
+      
+      </tr>
+      
+    </tbody>
+  </table>
+
+
     </div>
   
   </div>
@@ -105,6 +161,17 @@
   
 </div>
 
-
+<nav class="navbar navbar-default navbar-static-top navbar-inverse">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li class="active">
+        <a> Sandra Gomez</a>
+      </li>
+  
+    </ul>
+  </div>
+</nav>
 </body>
+
+
 </html>
