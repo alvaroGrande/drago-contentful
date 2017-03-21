@@ -1,5 +1,8 @@
-var valoresDetalle = $(document).on("click", "#btnDetaggils", function() {
-//   console.log("inside";   <-- here it is
- alert(valoresDetalle.identUsuario);
-    });
+$(document).ready(function(){
 
+   $('.btnDetaggils').on('click', function(){
+       var $this=$(this)
+       alert ($this.val())
+   })
+   var btn = $('.btnDetaggils').val()
+})

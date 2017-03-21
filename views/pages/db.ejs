@@ -18,6 +18,9 @@
 
 <div class="container">
   <div class="alert alert-info text-center" role="alert">
+
+
+    <!-- IMAGEN DE LA CABECERA DE LA PÁGINA -->
   <img src="../../img/Logo_118351.png" alt="Responsive image" class="img-thumbnail anchoCompleto" >
   <h4>  </h4>
     <h4>Extracción de datos de base de datos / Conexion a la base de datos, SELECT, INSERT y DELETE</h4>
@@ -25,6 +28,8 @@
 <h5 class="bg-primary" id="btnDetails">Detalles</h5>
     </div>
   </div>
+
+  <!-- TABLA DE USUARIOS -->
   <div class="container">
   <div class="row">
     <div class= "col-md-4">
@@ -37,6 +42,8 @@
            
   <table class="table table-condensed">
     <thead>
+
+          <!-- Definimos las filas de la tabla de usuarios -->
       <tr>
         <th class="bg-success">ID_usuario</th>
         <th class="bg-success">Nombre</th>
@@ -45,21 +52,25 @@
        
       </tr>
     </thead>
+
+        <!-- Botones de la tabla de usuarios -->
     <tbody class="botones">
       <tr ng-repeat="usuario in db.loggedContent">
-        <td id="identUsuario" class="glyphicon glyphicon-user">  {{usuario.ID_usuario}}</td>
-        <td id="nombreUsuario">{{usuario.Name}}</td>
+        <td id="identUsuario" class="glyphicon glyphicon-user user">  {{usuario.ID_usuario}}</td>
+        <td id="nombreUsuario" class="name">{{usuario.Name}}</td>
         <td> <button type="button" class="btn btn-info" ng-click="db.verDetalle(usuario.ID_usuario)" value="Productos">Productos</button></td>
-        <td> <div id="btnDetaggils" class="btn btn-default">Detalles</div></td>
-
+        <td><button type="button" class="btn btn-default btnDetaggils" data-toggle="modal" data-target="#myModal" ng-click="db.verDetalles(usuario.ID_usuario)">Detalles</button> </td>
+         
       
+      <!-- <div  class="btn btn-default btnDetaggils" ng-click="db.verUsuario(usuario.ID_usuario)" data-toggle="modal" data-target="#myModal">Detalles</div> -->
       </tr>
+      
       
     </tbody>
   </table>
     </div>
   
-
+<!-- TABLA DE PRODUCTOS -->
   
     <div class= "col-md-4">
      <div class="alert alert-info text-center cajasAzules" role="alert">
@@ -71,26 +82,28 @@
   <table class="table table-condensed">
     <thead>
       <tr>
+
+       <!-- Definimos las filas de la tabla de productos -->
+
         <th class="bg-success">ID_producto</th>
         <th class="bg-success">Articulo</th>
         <th class="bg-success">Más Info...</th>
-       
-       
       </tr>
     </thead>
     <tbody>
+
+       <!-- Botones de la tabla de productos -->
       <tr ng-repeat="producto in db.loggedContentt">
-        <td class= "glyphicon glyphicon-list">   {{producto.ID_product}}</td>
+        <td class= "glyphicon glyphicon-phone">   {{producto.ID_product}}</td>
         <td>{{producto.articulo}}</td>
          <td> <button type="button" class="btn btn-success" ng-click="db.verPoseedores(producto.ID_product)" value="Productos">¿Quien lo posee?</button></td>
-      
       </tr>
       
     </tbody>
   </table>
     </div>
   
- 
+ <!-- TABLA DE MAS INFO (PRODUCTOS QUE POSEE UN DETERMINADO USUARIO) -->
     <div class= "col-md-4">
     <div class="alert alert-info text-center" role="alert">
     <h3>
@@ -103,63 +116,95 @@
     <thead>
       <tr>
         
-        <th class="bg-success">Articulo</th>
-       
-       
+        <th class="bg-success">ID del articulo</th>
+        <th class="bg-success">Nombre del articulo</th>
        
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="info in db.loggedContenttt">
-        <td class= "glyphicon glyphicon-phone">    {{info.articulo}}</td>
+        <td class= "glyphicon glyphicon-phone">    {{info.ID_product}}</td>
+         <td>    {{info.articulo}}</td>
         
-      
       </tr>
-      
     </tbody>
   </table>
-
-
     </div>
 
+ <!-- TABLA DE USUARIOS QUE POSEEN UN DETERMINADO PRODUCTO -->
     <div class="row">
     <div class= "col-md-4">
     <div class="alert alert-info text-center" role="alert">
     <h3>
     
     <img src="../../img/vector-cartoon-technology-icons.jpg" alt="Responsive image" class="img-thumbnail" >
-    PRODUCTOS DE CADA USUARIO</h3>
+    PRODUCTOS-USUARIO</h3>
      </div>
            
   <table class="table table-condensed">
     <thead>
       <tr>
         
-        <th class="bg-success">Usuario</th>
-       
-       
+        <th class="bg-success">ID_Usuario</th>
+        <th class="bg-success">Nombre</th>
        
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="info in db.loggedContentttt">
-        <td>{{info.ID_usuario}}</td>
-        
-      
+        <td class="glyphicon glyphicon-user user">    {{info.ID_usuario}}</td>
+        <td>{{info.Name}}</td>
       </tr>
-      
     </tbody>
   </table>
-
-
     </div>
-  
   </div>
- 
 </div>
   <hr>
-  
 </div>
+ <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">DETALLES</h4>
+        </div>
+        <div class="modal-body">
+        <table class="table table-condensed">
+         <thead>
+           <tr>
+          <th class="bg-success">     Nombre</th>
+          <th class="bg-success">     Primer apellido</th>
+          <th class="bg-success">     Segundo apellido</th>
+          <th class="bg-success">     Numero de teléfono</th>
+          <th class="bg-success">     Email</th>
+       
+         </tr>
+        </thead>
+
+          <tbody>
+        <tr ng-repeat="info in db.loggedContenttttt">
+        <td>    {{info.Name}}</td>
+        <td>    {{info.Primer_apellido}}</td>
+        <td>{{info.Segundo_apellido}}</td>
+        <td>{{info.Numero_telefono}}</td>
+        <td>{{info.Email}}</td>
+      </tr>
+    </tbody>
+      </table>
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+ <!-- FOOTER -->
 
 <nav class="navbar navbar-default navbar-static-top navbar-inverse">
   <div class="container">

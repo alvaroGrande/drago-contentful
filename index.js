@@ -29,6 +29,7 @@ app.get('/api/db', db.getFeature)
 app.get('/api/products', db.getProductos)
 app.post('/api/info', db.getMasInfo)
 app.post('/api/poseedores', db.getPoseedores)
+app.post('/api/detalles', db.getDetalles)
 
 
 
